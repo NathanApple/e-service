@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('service_name',255);
             $table->string('service_photo_path', 2048)->nullable();
             $table->bigInteger('lowest_price');
-            $table->boolean('avaibility');
+            $table->boolean('available');
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
