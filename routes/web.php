@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceTransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::post('/seller/service/create', [ServiceController::class, 'create']);
+Route::get('/seller/service/create', [ServiceController::class, 'form_create']);
+
+Route::get('/seller/service/transaction/start', [ServiceTransactionController::class, 'view_start_transaction']);
+Route::post('/seller/service/transaction/start', [ServiceTransactionController::class, 'start_transaction']);
+
+Route::get('/user/transaction/confirm/{id}', [ServiceTransactionController::class, 'accept_transaction']);
+Route::get('/user/transaction/check/{id}', [ServiceTransactionController::class, 'check_transaction']);

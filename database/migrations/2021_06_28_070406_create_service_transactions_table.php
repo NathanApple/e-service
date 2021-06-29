@@ -17,7 +17,7 @@ class CreateServiceTransactionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('service_id')->nullable();
-            $table->uuid('order_id');
+            $table->uuid('order_id')->nullable();
             $table->bigInteger('price');
             $table->string('transaction_status');
             $table->softDeletes();

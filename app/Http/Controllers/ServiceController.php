@@ -11,16 +11,21 @@ class ServiceController extends Controller
         $id_seller = "1";
         $service = new Service();
 
-        $service->name = $request->name;
+        $service->seller_id = $id_seller;
+        $service->service_name = $request->service_name;
         $service->lowest_price = $request->lowest_price;
-        $service->avaibility = $request->avaibility;
-        $service->name = $request->name;
-        $service->name = $request->name;
-        $service->name = $request->name;
-        $service->name = $request->name;
-        $service->name = $request->name;
+        $service->available = $request->available;
+        $service->description = $request->description;
 
         $service->save();
+
+        return dump($service);
         
+    }
+
+    
+
+    public function form_create(Request $request){
+        return view('form_service');
     }
 }
